@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DocumentEditor.Models.Editor>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Your Documents</h1>
+
+<p>
+    <a asp-action="Create">Create New Document</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.ActionLink("Edit/View", "Edit", new { id = item.Id }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
